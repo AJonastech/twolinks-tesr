@@ -108,7 +108,7 @@ function User() {
                 <div className="flex  lg:ml-5 flex-col basis-1/3">
                   <div className="w-full px-3 py-2 rounded-2xl mb-5  min-h-[150px] w-full border-2 border-borderGray">
                     <p className="text-[12px] text-lightBlue">SKILLS</p>
-                    <div>
+                    <div className='text-wrap w-full'>
                         {
                          user.filter((arr, id) => arr.id === parseInt(getId.id))[0].skills.map((arr,id)=>(
                             
