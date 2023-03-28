@@ -8,7 +8,6 @@ module.exports = {
       colors:{
         darkTheme: "#12253f",
         blue : "#2e7be5",
-        borderGray: "#2b476a",
         cardgray: "#dbdfea",
         cardgray1: "#c0cbde",
         navDark: "#142d4e",

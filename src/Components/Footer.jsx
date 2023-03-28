@@ -1,8 +1,11 @@
 import React from 'react'
+import { useContext } from 'react'
+import { themeData } from '../App';
 
 function Footer() {
+const theme = useContext(themeData);
     return (
-        <footer className='z-10 px-4 border-t-2 text-[14px] border-borderGray w-full py-2 text-lightBlue bg-darkTheme flex justify-between  fixed bottom-0 right-0'> 
+        <footer style={{backgroundColor: theme.containerColor, borderTopColor: theme.borderColor, borderTopWidth: "2px"}} className='z-10 px-4  text-[14px]  w-full py-2 text-lightBlue bg-darkTheme flex justify-between  fixed bottom-0 right-0'> 
             <p>
                Privacy Policy Terms Of Services 
 

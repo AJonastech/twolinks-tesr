@@ -9,8 +9,11 @@ import {Link, useParams} from "react-router-dom"
 import Skeleton,{SkeletonTheme} from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import UserProfilecard from '../Components/UserProfilecard'
+import { useContext } from 'react'
+import { themeData } from '../App';
 
 function User() {
+    const theme= useContext(themeData);
     const [user, setUser] = useState([]);
     const [loading, setLoading]= useState(true)
    
@@ -31,7 +34,7 @@ function User() {
     return (
       <section>
         <Nav />
-        <main className="z-0  bg-darkTheme px-5 w-full min-h-[100vh] py-2">
+        <main style={{ backgroundColor:theme.bgColor}} className="z-0   px-5 w-full min-h-[100vh] py-2">
           {loading ? (
             <>
               <div className="w-full mt-[70px]">
@@ -42,7 +45,7 @@ function User() {
               </div>
               <section className="w-full text-white lg:flex mt-4">
                 <div className="flex-col flex basis-2/3">
-                  <div className="rounded-2xl px-3 py-2 min-h-[80px] mb-5 w-full border-2 border-borderGray">
+                  <div style={{backgroundColor: theme.bgColor, color:theme.color, borderColor: theme.borderColor, borderWidth:"2px"}} className="rounded-2xl px-3 py-2 min-h-[80px] mb-5 w-full ">
                     <p className="text-[12px] text-lightBlue">BIO</p>
                     <p className="text-[12px] opacity-50 text-cardgray">
                       <SkeletonTheme baseColor="#6f99cd" highlightColor="#12253f">
@@ -52,7 +55,7 @@ function User() {
                       </SkeletonTheme>
                     </p>
                   </div>
-                  <div className="min-h-[250px] px-3 py-2 w-full rounded-2xl border-2 border-borderGray">
+                  <div style={{backgroundColor: theme.bgColor, color:theme.color, borderColor: theme.borderColor, borderWidth:"2px"}} className="min-h-[250px] px-3 py-2 w-full rounded-2xl ">
                     <p className="text-[12px] text-lightBlue">EXPERIENCE</p>
                     <p className="text-[12px] opacity-50 text-cardgray">
                       <Skeleton baseColor="#6f99cd" highlightColor="#12253f" height={100} />
@@ -60,10 +63,10 @@ function User() {
                   </div>
                 </div>
                 <div className="flex lg:ml-5 flex-col basis-1/3">
-                  <div className="w-full px-3 py-2 rounded-2xl mb-5  min-h-[150px] w-full border-2 border-borderGray">
-                    <p className="text-[12px] text-lightBlue">SKILLS</p>
+                  <div style={{backgroundColor: theme.bgColor, color:theme.color, borderColor: theme.borderColor, borderWidth:"2px"}} className="w-full px-3 py-2 rounded-2xl mb-5   min-h-[150px] w-full">
+                    <p className="text-[12px] mt-5 lg:mt-0 text-lightBlue">SKILLS</p>
                   </div>
-                  <div className="w-full px-3 py-2 rounded-2xl min-h-[400px] w-full border-2 border-borderGray">
+                  <div style={{backgroundColor: theme.bgColor, color:theme.color, borderColor: theme.borderColor, borderWidth:"2px"}} className="w-full px-3 py-2 rounded-2xl min-h-[400px] w-full border-2 border-borderGray">
                     <p className="text-lightBlue text-[12px]">
                       SIMILAR PROFILES
                     </p>
@@ -84,9 +87,9 @@ function User() {
               </div>
               <section className="w-full text-white lg:flex  mt-4">
                 <div className="flex-col flex basis-2/3">
-                  <div className="rounded-2xl px-3 py-2 min-h-[80px] mb-5 w-full border-2 border-borderGray">
+                  <div style={{backgroundColor: theme.bgColor, color:theme.color, borderColor: theme.borderColor, borderWidth:"2px"}}  className="rounded-2xl px-3 py-2 min-h-[80px] mb-5 w-full ">
                     <p className="text-[12px] text-lightBlue">BIO</p>
-                    <p className="text-[12px] opacity-50 text-cardgray">
+                    <p className="text-[12px] opacity-50 ">
                       {
                         user.filter(
                           (arr, id) => arr.id === parseInt(getId.id)
@@ -94,7 +97,7 @@ function User() {
                       }
                     </p>
                   </div>
-                  <div className="min-h-[250px] px-3 py-2 w-full rounded-2xl border-2 border-borderGray">
+                  <div style={{backgroundColor: theme.bgColor, color:theme.color, borderColor: theme.borderColor, borderWidth:"2px"}}  className="min-h-[250px] px-3 py-2 w-full rounded-2xl ">
                     <p className="text-[12px] text-lightBlue">EXPERIENCE</p>
                     <p className="text-[12px] opacity-50 text-cardgray">
                       {
@@ -106,18 +109,18 @@ function User() {
                   </div>
                 </div>
                 <div className="flex  lg:ml-5 flex-col basis-1/3">
-                  <div className="w-full px-3 py-2 rounded-2xl mb-5  min-h-[150px] w-full border-2 border-borderGray">
+                  <div style={{backgroundColor: theme.bgColor, color:theme.color, borderColor: theme.borderColor, borderWidth:"2px"}}  className="w-full px-3 py-2 mt-5 lg:mt-0 rounded-2xl mb-5  min-h-[150px] w-full">
                     <p className="text-[12px] text-lightBlue">SKILLS</p>
                     <div className='flex flex-wrap w-full py-2'>
                         {
                          user.filter((arr, id) => arr.id === parseInt(getId.id))[0].skills.map((arr,id)=>(
                             
-                        <Link key={id} className="bg-button my-2 text-lightBlue px-4 hover:opacity-50 py-2 mx-1 rounded-full  text-[11px]">{arr}</Link>
+                        <Link key={id} style={{backgroundColor:theme.containerColor}} className=" my-2 text-lightBlue px-4 hover:opacity-50 py-2 mx-1 rounded-full  text-[11px]">{arr}</Link>
                          ))
                         }
                     </div>
                   </div>
-                  <div className="w-full px-3 py-2 rounded-2xl min-h-[400px] w-full border-2 border-borderGray">
+                  <div style={{backgroundColor: theme.bgColor, color:theme.color, borderColor: theme.borderColor, borderWidth:"2px"}}  className="w-full px-3 py-2 rounded-2xl min-h-[400px] w-full ">
                     <p className="text-lightBlue text-[12px]">
                       SIMILAR PROFILES
                     </p>

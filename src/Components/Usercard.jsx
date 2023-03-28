@@ -4,7 +4,11 @@ import Profile from "../Assets/Images/Users/Profile.svg"
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import { useContext } from 'react'
+import { themeData } from '../App';
+
 function Usercard() {
+    const theme = useContext(themeData);
      //Initialises the state for the user
      const [user, setUser]=useState({});
     
@@ -20,9 +24,9 @@ function Usercard() {
          });
      }, []);
     return (
-      <div className="relative w-full rounded-2xl overflow-hidden flex flex-col border-2 h-[320px] border-borderGray">
+      <div style={{borderColor: theme.borderColor, borderWidth: "2px"}} className="relative w-full rounded-2xl overflow-hidden flex flex-col h-[320px] ">
         <div className="bg-cardgray w-full h-[50%] "></div>
-        <div className="flex items-end px-5 py-4 justify-between h-[50%]">
+        <div style={{backgroundColor: theme.containerColor, color : theme.color}} className="flex items-end px-5 py-4 justify-between h-[50%]">
           <div className="flex text-white text-sm items-center">
           <Link to={"/user/"+user.id}>
             <img
@@ -31,7 +35,7 @@ function Usercard() {
               alt="user's Image"
             />
             </Link>
-            <p className="font-bold ml-2">{user.followers} followers</p>
+            <p style={{color: theme.color}} className="font-bold ml-2">{user.followers} followers</p>
           </div>
           <div>
             <button className="text-white bg-blue px-8 py-1 rounded-md">
@@ -48,8 +52,8 @@ function Usercard() {
                 alt="profile Image"
               />
             </div>
-            <h3 className="text-white my-2 text-xl">FastJobs</h3>
-            <p className="text-sm text-cardgray">Business Services</p>
+            <h3 style={{color:theme.color}}className="text-white my-2 text-xl">FastJobs</h3>
+            <p className="text-sm text-cardgray font-bold ">Business Services</p>
           </div>
         </div>
       </div>

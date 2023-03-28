@@ -2,12 +2,15 @@
 import React from 'react'
 import {Link } from "react-router-dom"
 import user from "../Assets/Images/Users/Profile.svg"
+import { useContext } from 'react'
+import { themeData } from '../App';
 
 function Profiledata({arr,status}) {
+
+    const theme = useContext(themeData)
     return (
-       
             <React.Fragment>
-            <div className="relative w-full rounded-2xl overflow-hidden flex flex-col border-2 h-[400px] border-borderGray">
+            <div style={{backgroundColor: theme.bgColor, color:theme.color, borderColor: theme.borderColor, borderWidth:"2px"}} className="relative w-full rounded-2xl overflow-hidden flex flex-col border-2 h-[400px] border-borderGray">
                <div className="bg-cardgray w-full h-[60%] "></div>
                <div className="flex items-end px-5 py-4 justify-between h-[40%]">
                  <div className="flex text-white text-sm items-center">
@@ -29,9 +32,9 @@ function Profiledata({arr,status}) {
                        alt="profile Image"
                      />
                    </div>
-                   <h3 className="text-white my-1 text-xl">{status ? arr[0].name : "" }</h3>
-                   <p className="text-sm opacity-50 text-cardgray">{status? `${arr[0].location.state}, ${arr[0].location.country}`:""}</p>
-                   <p className="text-sm opacity-50 text-cardgray">{status? arr[0].role_info.title: ""}</p>
+                   <h3 className=" my-1 text-xl">{status ? arr[0].name : "" }</h3>
+                   <p className="text-sm opacity-50 ">{status? `${arr[0].location.state}, ${arr[0].location.country}`:""}</p>
+                   <p className="text-sm opacity-50 ">{status? arr[0].role_info.title: ""}</p>
                  </div>
                </div>
              </div>

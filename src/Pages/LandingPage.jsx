@@ -3,15 +3,19 @@ import Footer from '../Components/Footer'
 import Nav from '../Components/Nav'
 import TestCard from '../Components/TestCard'
 import Usercard from '../Components/Usercard'
+import { useContext } from 'react'
+import {  themeData } from '../App';
+
 function LandingPage() {
-   
+const theme= useContext(themeData);
     return (
+        
         <section>
             <Nav/>
-            <main className='z-0 bg-darkTheme px-5 w-full min-h-[100vh] py-2'>
-               <div className='max-w-[778px] mt-[70px] w-100% mx-auto'>
+            <main style={{backgroundColor: theme.bgColor, color:theme.color}} className={'z-0 px-5 w-full min-h-[100vh] py-2'}>
+               <div style={{color:theme.color}} className='max-w-[778px] mt-[70px] w-100% mx-auto'>
                 <Usercard/>
-                <div className='w-full h-[4px] bg-borderGray my-6  rounded-md'>  
+                <div style={{backgroundColor:  theme.containerColor}} className='w-full h-[4px] my-6  rounded-md'>  
                 
                </div>
                <TestCard/>
