@@ -82,7 +82,7 @@ function User() {
                   status={true}
                 />
               </div>
-              <section className="w-full text-white lg:flex  flex mt-4">
+              <section className="w-full text-white lg:flex  mt-4">
                 <div className="flex-col flex basis-2/3">
                   <div className="rounded-2xl px-3 py-2 min-h-[80px] mb-5 w-full border-2 border-borderGray">
                     <p className="text-[12px] text-lightBlue">BIO</p>
