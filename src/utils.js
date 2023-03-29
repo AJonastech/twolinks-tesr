@@ -155,5 +155,17 @@ export const theme = {
         buttonColor: "#25239e"
     }
 }
-
+export  function checkLogin(login, timeOutId,setTimeOutId){
+    login.setLoginWarning(false);
+     if (login.login === false){
+     clearTimeout(timeOutId);
+        login.setLoginWarning(true);
+        const id = setInterval(() => {
+          login.setLoginWarning(false)
+          clearInterval(id)
+        }, 3000);
+           setTimeOutId(id)
+     }
+     
+  }
 

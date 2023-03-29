@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { themeData } from '../App';
-function UserProfilecard({arr}) {
+function UserProfilecard({arr, checkLogin, login, timeOutId, setTimeOutId}) {
     const theme = useContext(themeData)
     return (
         <div className='flex w-full px-2 py-2 items-center justify-between'>
@@ -17,7 +17,7 @@ function UserProfilecard({arr}) {
                 </div>
             </div>
             <div>
-                <button style={{backgroundColor:theme.buttonColor}}className='text-[12px] bg-blue text-cardgray px-2 py-2 rounded-md'>
+                <button  onClick={()=>{checkLogin(login,timeOutId,setTimeOutId)}}  style={{backgroundColor:theme.buttonColor}}className='text-[12px] bg-blue text-cardgray px-2 py-2 rounded-md'>
                     Follow
                 </button>
             </div>

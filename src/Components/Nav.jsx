@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 function Nav({showJob}) {
   const theme = useContext(themeData);
   return (
+    
     <header
       style={{ backgroundColor: theme.bgColor, borderBottomColor:theme.borderColor, borderBottomWidth: "1px" }}
       className="z-10 w-full fixed  h-[60px] bg-navDark flex justify-between items-center px-4 cursor-pointer"

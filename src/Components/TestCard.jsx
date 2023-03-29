@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from 'react'
-import { themeData } from '../App';
-function TestCard() {
+import { themeData} from '../App';
+function TestCard({checkLogin, login, timeOutId, setTimeOutId}) {
     const theme = useContext(themeData);
   return (
     <div style={{backgroundColor: theme.bgColor, color: theme.color, borderColor: theme.borderColor, borderWidth: "1px"}} className="w-full rounded-2xl flex flex-col border-2 min-h-[250px]">
@@ -15,7 +15,7 @@ function TestCard() {
         <div className="h-[2px] w-full mt-10 bg-borderGray"></div>
         <div className="flex mt-8 items-center justify-between w-full ">
             <p className="text-[12px]  font-bold"> This test is open</p>
-            <button style={{backgroundColor: theme.buttonColor}} className="bg-blue px-4 py-1 rounded-md text-white">
+            <button onClick={()=>{checkLogin(login,timeOutId,setTimeOutId)}} style={{backgroundColor: theme.buttonColor}} className="bg-blue px-4 py-1 rounded-md text-white">
                 Start Test
             </button>
         </div>

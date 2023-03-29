@@ -6,7 +6,10 @@ import { createContext, useState } from 'react';
 import { theme } from './utils';
 import Jobs from './Pages/Jobs';
 export const themeData= createContext();
+export const loginData = createContext();
 function App() {
+  const [login, setLogin]=useState(false);
+  const [loginWarning ,setLoginWarning] =useState(false);
   const [darktheme, setDarkTheme] = useState(true);
   const currentTheme = darktheme ? 'primary': "secondary";
   const bgColor=theme[currentTheme].bgColor;
@@ -17,11 +20,15 @@ function App() {
 
   return (
     <themeData.Provider value={{ setDarkTheme,bgColor,darktheme, color,borderColor,containerColor, buttonColor}} >
+      <loginData.Provider value={{login,loginWarning,setLoginWarning}}>
+
+     
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/user/:id" element={<User/>}/>
       <Route path="/jobs" element={<Jobs/>}/>
       </Routes>
+      </loginData.Provider>
     </themeData.Provider>
    
   );

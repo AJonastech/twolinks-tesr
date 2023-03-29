@@ -10,9 +10,13 @@ import Skeleton,{SkeletonTheme} from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import UserProfilecard from '../Components/UserProfilecard'
 import { useContext } from 'react'
-import { themeData } from '../App';
+import { themeData, loginData } from '../App';
+import LoginAlert from '../Components/LoginAlert'
+import { checkLogin } from '../utils'
 
 function User() {
+  const login = useContext(loginData);
+  const [timeOutId, setTimeOutId] = useState(null)
     const theme= useContext(themeData);
     const [user, setUser] = useState([]);
     const [loading, setLoading]= useState(true)
@@ -83,6 +87,7 @@ function User() {
                 <Profiledata
                   arr={user.filter((arr, id) => arr.id === parseInt(getId.id))}
                   status={true}
+                  checkLogin={checkLogin} login={login} timeOutId={timeOutId} setTimeOutId={setTimeOutId}
                 />
               </div>
               <section className="w-full text-white lg:flex  mt-4">
@@ -92,7 +97,7 @@ function User() {
                     <p className="text-[12px] opacity-50 ">
                       {
                         user.filter(
-                          (arr, id) => arr.id === parseInt(getId.id)
+                          (arr) => arr.id === parseInt(getId.id)
                         )[0].bio
                       }
                     </p>
@@ -128,7 +133,7 @@ function User() {
                         {
                             user.filter((arr,id)=>arr.id !== parseInt(getId.id) && id<= 7).map((arr,id)=>(
         <>
-                               <UserProfilecard key={id} arr={arr}/>
+                               <UserProfilecard key={id} arr={arr} checkLogin={checkLogin} login={login} timeOutId={timeOutId} setTimeOutId={setTimeOutId}/>
                                 
                                 </>
                             ))
@@ -144,6 +149,7 @@ function User() {
             </>
           )}
         </main>
+        <LoginAlert/>
         <Footer />
       </section>
     );
