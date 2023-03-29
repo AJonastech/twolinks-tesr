@@ -5,11 +5,12 @@ import { BsMoon } from "react-icons/bs";
 import { useContext } from "react";
 import { themeData } from "../App";
 import { FiSun } from "react-icons/fi";
-function Nav() {
+import { Link } from "react-router-dom";
+function Nav({showJob}) {
   const theme = useContext(themeData);
   return (
     <header
-      style={{ backgroundColor: theme.containerColor, borderBottomColor:theme.borderColor, borderBottomWidth: "2px" }}
+      style={{ backgroundColor: theme.bgColor, borderBottomColor:theme.borderColor, borderBottomWidth: "1px" }}
       className="z-10 w-full fixed  h-[60px] bg-navDark flex justify-between items-center px-4 cursor-pointer"
     >
       <img
@@ -18,10 +19,14 @@ function Nav() {
         alt="Company's Logo"
       />
       <div className="flex items-center">
+        { showJob && <Link to="/jobs" style={{color: theme.color}} className="mr-2">
+       
+           Jobs
+         </Link>}
+
+          {theme.darktheme ? <button onClick={()=>{console.log(theme.darktheme);theme.setDarkTheme(false)}} style={{backgroundColor:theme.bgColor,borderColor: theme.borderColor, borderWidth: "1px"}} className="outline-none text-cardgray font-bold border-2 border-borderGray rounded-md py-2 px-2"><BsMoon /> </button>: <button onClick={()=>{theme.setDarkTheme(true)}}style={{backgroundColor:theme.bgColor, borderColor: theme.borderColor, borderWidth: "1px"}} className="text-borderGray font-bold border-1  rounded-md py-2 px-2"><FiSun/> </button>}
         
-          {theme.darktheme ? <button onClick={()=>{console.log(theme.darktheme);theme.setDarkTheme(false)}} style={{backgroundColor:theme.bgColor}} className="outline-none text-cardgray font-bold border-2 border-borderGray rounded-md py-2 px-2"><BsMoon /> </button>: <button onClick={()=>{theme.setDarkTheme(true)}}style={{backgroundColor:theme.bgColor}} className="text-borderGray font-bold border-2 border-borderGray rounded-md py-2 px-2"><FiSun/> </button>}
-        
-        <button className="ml-2 px-3 py-2 rounded-md text-white bg-blue">
+        <button style={{backgroundColor: theme.buttonColor}} className="ml-2 px-3 py-2 rounded-md text-white bg-blue">
           Sign in
         </button>
       </div>

@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react'
-import {Link } from "react-router-dom"
 import user from "../Assets/Images/Users/Profile.svg"
 import { useContext } from 'react'
 import { themeData } from '../App';
@@ -17,7 +16,7 @@ function Profiledata({arr,status}) {
               
                  </div>
                  <div>
-                   <button className="text-white bg-blue px-8 py-1 rounded-md">
+                   <button style={{backgroundColor: theme.buttonColor}} className="text-white bg-blue px-8 py-1 rounded-md">
                      Follow
                    </button>
                  </div>

@@ -11,11 +11,11 @@ const theme= useContext(themeData);
     return (
         
         <section>
-            <Nav/>
-            <main style={{backgroundColor: theme.bgColor, color:theme.color}} className={'z-0 px-5 w-full min-h-[100vh] py-2'}>
-               <div style={{color:theme.color}} className='max-w-[778px] mt-[70px] w-100% mx-auto'>
+            <Nav showJob={false}/>
+            <main style={{backgroundColor: theme.containerColor, color:theme.color}} className='z-0 px-5 w-full min-h-[100vh] py-2'>
+               <div style={{color:theme.color,backgroundColor: theme.containerColor }} className='max-w-[778px] mt-[70px] w-100% mx-auto'>
                 <Usercard/>
-                <div style={{backgroundColor:  theme.containerColor}} className='w-full h-[4px] my-6  rounded-md'>  
+                <div style={{backgroundColor:  theme.borderColor}} className='w-full h-[4px] my-6  rounded-md'>  
                 
                </div>
                <TestCard/>

@@ -17,7 +17,7 @@ function UserProfilecard({arr}) {
                 </div>
             </div>
             <div>
-                <button className='text-[12px] bg-blue text-cardgray px-2 py-2 rounded-md'>
+                <button style={{backgroundColor:theme.buttonColor}}className='text-[12px] bg-blue text-cardgray px-2 py-2 rounded-md'>
                     Follow
                 </button>
             </div>

@@ -33,7 +33,7 @@ function User() {
     console.log(user.filter((arr,id)=>arr.id===parseInt(getId.id)))
     return (
       <section>
-        <Nav />
+        <Nav showJob={true} />
         <main style={{ backgroundColor:theme.bgColor}} className="z-0   px-5 w-full min-h-[100vh] py-2">
           {loading ? (
             <>

@@ -24,7 +24,7 @@ function Usercard() {
          });
      }, []);
     return (
-      <div style={{borderColor: theme.borderColor, borderWidth: "2px"}} className="relative w-full rounded-2xl overflow-hidden flex flex-col h-[320px] ">
+      <div style={{borderColor: theme.borderColor, borderWidth: "1px"}} className="relative w-full rounded-2xl overflow-hidden flex flex-col h-[320px] ">
         <div className="bg-cardgray w-full h-[50%] "></div>
         <div style={{backgroundColor: theme.containerColor, color : theme.color}} className="flex items-end px-5 py-4 justify-between h-[50%]">
           <div className="flex text-white text-sm items-center">
@@ -38,7 +38,7 @@ function Usercard() {
             <p style={{color: theme.color}} className="font-bold ml-2">{user.followers} followers</p>
           </div>
           <div>
-            <button className="text-white bg-blue px-8 py-1 rounded-md">
+            <button  style={{backgroundColor: theme.buttonColor}}className="text-white bg-blue px-8 py-1 rounded-md">
               Follow
             </button>
           </div>
